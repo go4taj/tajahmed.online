@@ -1,12 +1,9 @@
-import _ from 'lodash';
-
-function component() {
-  const element = document.createElement('div');
-
-  // Lodash, now imported by this script
-  element.innerHTML = _.join(['Hello', 'webpack'], ' ');
-
-  return element;
-}
-
-document.body.appendChild(component());
+import React from 'react';
+import ReactDOM from 'react-dom';
+import App from './App'
+// const App = () => (
+//   <div>
+//     <h1>Hello world!!</h1>
+//   </div>
+// )
+ReactDOM.render(<App/>, document.getElementById('root'));
