@@ -2,6 +2,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const webpack = require('webpack');
+console.log(path.resolve(__dirname,'src','js','components'));
 module.exports = env=>{
   return {
     mode: 'development',
@@ -17,12 +18,9 @@ module.exports = env=>{
         {
           test: /\.(scss|css)$/,
           use: [
-            {
-              loader: 'style-loader'
-            },
-            {
-                loader: 'css-loader'
-            }
+            'style-loader',
+            'css-loader',
+            'sass-loader'
           ]
         },
         {
@@ -62,6 +60,9 @@ module.exports = env=>{
     resolve: {
       alias: {
         'react-dom': '@hot-loader/react-dom',
+        '@components': path.resolve(__dirname,'src','js','components'),
+        '@images': path.resolve(__dirname,'src','images'),
+        '@carbon-components$': path.resolve(__dirname,'node_modules','carbon-components','css','carbon-components.css'),
       },
     },
     devtool: 'inline-source-map',
