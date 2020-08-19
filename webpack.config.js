@@ -2,13 +2,13 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const webpack = require('webpack');
-
 module.exports = env=>{
   return {
     mode: 'development',
     entry: ['react-hot-loader/patch',path.join(__dirname, 'src/index.js')],
     output: {
       filename: 'build.js',
+      chunkFilename: '[name].[hash].chunk.js',
       path: path.resolve(__dirname, 'dist'),
       publicPath: '/',
     },
@@ -72,7 +72,7 @@ module.exports = env=>{
           cleanStaleWebpackAssets: false,
           React: 'react'
       }),
-      new HtmlWebpackPlugin({inject: true,template: path.join(__dirname,'src/index.html')}),
+      new HtmlWebpackPlugin({inject: true,template: './src/index.html'}),
     ]
   }
 };
