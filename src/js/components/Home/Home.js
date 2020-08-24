@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 import React from 'react';
-import { NavigationBar,Loading,ParagraphBlock,Wrapper } from "@components";
+import { NavigationBar,Loading,ParagraphBlock,ContentWrapper } from "@components";
 import { getBlogs } from "../../../server/index";
 
 const Home = () => {
@@ -11,14 +11,13 @@ const Home = () => {
   return (
     <>
       <NavigationBar/>
-      <Wrapper>
+      <ContentWrapper>
         {data.articles.map(article=>(
           <ParagraphBlock>
             <div className="card paragraph" width="full" dangerouslySetInnerHTML={{ __html: article.content }} />
           </ParagraphBlock>
         ))}
-        
-      </Wrapper>
+      </ContentWrapper>
     </>
   );
 };

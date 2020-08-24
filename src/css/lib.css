@@ -1,5 +1,5 @@
 .bx--header {
-  background-color: green;
+  background-color: #7e72b0;
   transition: 0.3s;
 }
 
@@ -7,8 +7,13 @@ body {
   background:whitesmoke;
 }
 
+#main-content {
+  background:whitesmoke
+}
+
 .card {
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  background-color: white;
   transition: 0.3s;
 }
 
