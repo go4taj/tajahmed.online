@@ -1,5 +1,7 @@
-import { Search20, Notification20,AppSwitcher20 } from '@carbon/icons-react';
+import { Search20,User20,AppSwitcher20 } from '@carbon/icons-react';
 import styled from 'styled-components';
+import { History } from '@components'
+
 import {
   HeaderContainer,
   Header,
@@ -28,6 +30,11 @@ const LightHeader = styled(Header)`
 `;
 
 const NavigationBar = ()=>{
+
+  const openAdmin = ()=>{
+    History.push('/admin');
+  }
+  
   return (
     <HeaderContainer
     render={({ isSideNavExpanded, onClickSideNavExpand }) => (
@@ -58,9 +65,9 @@ const NavigationBar = ()=>{
           <Search20 />
         </HeaderGlobalAction>
         <HeaderGlobalAction
-          aria-label="Notifications"
-          onClick={action('notification click')}>
-          <Notification20 />
+          aria-label="Login"
+          onClick={openAdmin}>
+          <User20 />
         </HeaderGlobalAction>
         <HeaderGlobalAction
           aria-label="App Switcher"

@@ -26,3 +26,10 @@ body {
   width: 100%;
   min-height: 300px;
 }
+
+.center {
+  margin: auto;
+  width: 50%;
+  border: 3px solid green;
+  padding: 10px;
+}

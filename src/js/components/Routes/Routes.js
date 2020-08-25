@@ -1,5 +1,6 @@
 import { Switch, Route } from 'react-router-dom';
 import {Home} from "@components"
+import {AdminLogin} from "@pages"
 
 const PageNotFound = ()=>{
   return (<div>
@@ -12,8 +13,8 @@ let Routes = ()=>{
     <Route exact path="/">
       <Home/>
     </Route>
-    <Route path="/home">
-      <Home/>
+    <Route path="/admin">
+      <AdminLogin/>
     </Route>
     {/* <PrivateRoute path="/example-docgen" component={ExampleDocGen} /> */}
     <Route component={PageNotFound} />

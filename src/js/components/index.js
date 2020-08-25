@@ -4,4 +4,5 @@ export { default as Home } from './Home/Home';
 export { default as ParagraphBlock } from './Styled/Styled';
 export { default as ContentWrapper } from './Content/Content';
 export { Loading } from './Loading/Loading';
+export { default as History } from './history/history';
 export  * from './Styled/Styled';
