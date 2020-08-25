@@ -2,11 +2,12 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const webpack = require('webpack');
-console.log(path.resolve(__dirname,'src','js','components'));
+const Dotenv = require('dotenv-webpack');
+
 module.exports = env=>{
   return {
     mode: 'development',
-    entry: ['react-hot-loader/patch',path.join(__dirname, 'src/index.js')],
+    entry: ['react-hot-loader/patch','babel-polyfill',path.join(__dirname, 'src/index.js')],
     output: {
       filename: 'build.js',
       chunkFilename: '[name].[hash].chunk.js',
@@ -61,14 +62,16 @@ module.exports = env=>{
       alias: {
         'react-dom': '@hot-loader/react-dom',
         '@components': path.resolve(__dirname,'src','js','components'),
+        '@pages': path.resolve(__dirname,'src','js','pages'),
         '@images': path.resolve(__dirname,'src','images'),
-        '@carbon-components$': path.resolve(__dirname,'node_modules','carbon-components','css','carbon-components.css'),
+        '@carbon-components$': path.resolve(__dirname,'node_modules','carbon-components','css','carbon-components.min.css'),
       },
     },
     devtool: 'inline-source-map',
     devServer: {contentBase: './dist'},
     plugins:[
       new CleanWebpackPlugin(),
+      new Dotenv(),
       new webpack.ProvidePlugin({
           cleanStaleWebpackAssets: false,
           React: 'react'
